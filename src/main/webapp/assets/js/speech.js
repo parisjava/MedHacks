@@ -106,6 +106,8 @@ $('#save-note-btn').on('click', function(e) {
     // Save note to localStorage.
       // The key is the dateTime with seconds, the value is the content of the note.
 
+      console.log("what the actual fuck is happening");
+
       var noteValue = noteContent;
     $.ajax({
 	type: "POST",
