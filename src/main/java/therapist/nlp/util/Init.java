@@ -18,9 +18,9 @@ public class Init {
 	database = new Properties();
 	try {
 	    pipeline.load(
-	        Init.class.getResourceAsStream("./res/pipeline.prop"));
+	        Init.class.getResourceAsStream("/pipeline.prop"));
 	    database.load(
-		Init.class.getResourceAsStream("./res/database.prop"));
+		Init.class.getResourceAsStream("/database.prop"));
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
