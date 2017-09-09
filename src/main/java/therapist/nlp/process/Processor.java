@@ -24,7 +24,7 @@ public class Processor {
 	Annotation document = new Annotation(text);
 	pipeline.annotate(document);
 	int sentiment = 0;
-	String cause = "";
+	String cause = "generic";
 	for (CoreMap sentence: document.get(
 	    CoreAnnotations.SentencesAnnotation.class)) {
 
@@ -46,9 +46,8 @@ public class Processor {
 		}	      
 	    }
 	}
-
+	
 	cause = alias(cause);
-
 	if (sentiment <= 2) {
 	    return databaseAccess(cause);
 	}
