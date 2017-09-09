@@ -23,7 +23,7 @@ public class Database implements AutoCloseable {
 
     public String query(String cause) {
 	String sqlQuery = "Select Question From " + cause +
-	    " ORDER BY RAND() LIMIT 1";
+	    " ORDER BY Random() LIMIT 1";
 
 	try (Statement statement = connection.createStatement()) {
 	    return  getQuestion(statement.executeQuery(sqlQuery));
