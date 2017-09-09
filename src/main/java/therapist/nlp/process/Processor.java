@@ -1,4 +1,4 @@
-package therapist.nlp.processor;
+package therapist.nlp.process;
 
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.pipeline.*;
@@ -8,6 +8,10 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
+
+import therapist.nlp.util.Init;
+
+import java.sql.SQLException;
 
 public class Processor {
 
@@ -51,7 +55,8 @@ public class Processor {
     }
 
     private String databaseAccess(String cause) {
-	try (Database db = new Database()) {
+	String url = Init.database.getProperty("url");
+	try (Database db = new Database(url, Init.database)) {
 	    return db.query(cause); 
 	} catch (SQLException e) {
 	    System.out.println(e.getMessage());
