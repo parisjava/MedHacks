@@ -21,7 +21,10 @@ public class Database implements AutoCloseable {
 	this.connection = DriverManager.getConnection(url, properties);
     }
 
-    public String query(String sqlQuery) {
+    public String query(String cause) {
+	String sqlQuery = "Select Question From " + cause +
+	    " ORDER BY RAND() LIMIT 1";
+
 	try (Statement statement = connection.createStatement()) {
 	    return  getQuestion(statement.executeQuery(sqlQuery));
 	} catch(SQLException e) {

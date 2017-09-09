@@ -49,4 +49,13 @@ public class Processor {
 
 	
     }
+
+    private String databaseAccess(String cause) {
+	try (Database db = new Database()) {
+	    return db.query(cause); 
+	} catch (SQLException e) {
+	    System.out.println(e.getMessage());
+	    return "Sorry, im having some trouble now";
+	}
+    }
 }
