@@ -42,10 +42,10 @@ public class Processor {
 	}
 
 	if (sentiment < 2) {
-	    return "I am sorry to hear that you are having " + cause + " issues. Please contact a therapist!";
+	    return "I am sorry to hear that you are having issues with " + cause;
 	}
 
-        return "Glad to see you are having your a nice day";
+        return "Glad to see everything is going well with the " + cause;
 
 	
     }
