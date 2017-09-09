@@ -1,0 +1,46 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>HelloWorld Application</display-name>
+    <description>
+        This is a simple web application with a source code organization
+        based on the recommendations of the Application Developer's Guide.
+    </description>
+
+    <servlet>
+        <servlet-name>GoogleServlet</servlet-name>
+        <servlet-class>com.fortira.servlet.GoogleServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>AlexaServlet</servlet-name>
+      <servlet-class>com.fortira.servlet.AlexaServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>Security</servlet-name>
+      <servlet-class>com.fortira.servlet.SecurityServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>GoogleServlet</servlet-name>
+      <url-pattern>/apiai</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>AlexaServlet</servlet-name>
+      <url-pattern>/alexa</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+      <servlet-name>Security</servlet-name>
+      <url-pattern>/security</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+      <welcome-file>user.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
