@@ -60,6 +60,21 @@ public class Database implements AutoCloseable {
 	return "Something went wrong";
     }
 
+    public String getAlias(String word) {
+	String sqlQuery = "Select alias from alias where word=" + word;
+	
+	try (Statement statement = connection.createStatement()) {
+	    ResultSet rs = statement.executeQuery(sqlQuery);
+	    if (rs.next()) {
+		return rs.getString("alias");
+	    }
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+
+	return word;
+    }
+
     public void close() throws SQLException {
 	connection.close();
     }
