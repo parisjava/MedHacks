@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import java.io.PrintWriter;
+import java.io.IOException;
 
 public class TestServlet extends HttpServlet {
 
@@ -15,7 +16,11 @@ public class TestServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
 	response.setContentType("text/html");
-	PrintWriter out = response.getWriter();
-	out.println("<h1>This shit works</h1>");
+
+	try (PrintWriter out = response.getWriter()) {
+	    out.println("<h1>This shit works</h1>");
+	} catch (IOException e) {
+
+	}
     }
 }
