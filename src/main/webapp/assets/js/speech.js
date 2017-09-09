@@ -100,12 +100,26 @@ $('#save-note-btn').on('click', function(e) {
   recognition.stop();
 
   if(!noteContent.length) {
-    instructions.text('Could not save empty note. Please add a message to your note.');
+      instructions.text('Could not save empty note. Please add a message to your note.');
   }
   else {
     // Save note to localStorage.
-    // The key is the dateTime with seconds, the value is the content of the note.
-    saveNote(new Date().toLocaleString(), noteContent);
+      // The key is the dateTime with seconds, the value is the content of the note.
+
+      var noteValue = noteContent;
+    $.ajax({
+	type: "POST",
+	url: "/test",
+	// The key needs to match your method's input parameter (case-sensitive).
+	data: JSON.stringify({ request : noteContent }),
+	contentType: "application/json; charset=utf-8",
+	dataType: "json",
+	success: function(data){noteValue = data.response;},
+	failure: function(errMsg) {
+            alert(errMsg);
+	}
+    });
+    saveNote(new Date().toLocaleString(), noteValue);
 
     // Reset variables and update UI.
     noteContent = '';
