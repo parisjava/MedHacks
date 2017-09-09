@@ -2,7 +2,7 @@ package therapist.nlp.processor;
 
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.pipeline.*;
-import static edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.AbstractCoreLabel;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.util.CoreMap;
@@ -17,14 +17,24 @@ public class Processor {
     public String process(String text, StanfordCoreNLP pipeline) {
 	Annotation document = new Annotation(text);
 	pipeline.annotate(document);
-	int sentiment;
+	int sentiment = 0;
 	String cause = "";
-	for (CoreMap sentence: document.get(SentencesAnnotation.class)) {
-	    Tree tree = sentence.get(SentimentCoreAnnotations.AnnotatedTree.class);
-	    sentiment = RNNCoreAnotations.getPredictedClass(tree);
-	    for (CoreLabel token: sentence.get(TokensAnnotation.class)) {
-		String word = token.get(TextAnnotation.class);
-		String ner = token.get(NamedEntityTagAnnotation.class);
+	for (CoreMap sentence: document.get(
+	    CoreAnnotations.SentencesAnnotation.class)) {
+
+	    Tree tree = sentence.get(
+	        SentimentCoreAnnotations.SentimentAnnotatedTree.class);
+
+	    sentiment = RNNCoreAnnotations.getPredictedClass(tree);
+
+	    for (CoreLabel token: sentence.get(
+	        CoreAnnotations.TokensAnnotation.class)) {
+
+		String word = token.get(
+		    CoreAnnotations.TextAnnotation.class);
+		String ner = token.get(
+		    CoreAnnotations.NamedEntityTagAnnotation.class);
+
 		if (ner.equalsIgnoreCase("CAUSE")) {
 		    cause = word;
 		}	      
