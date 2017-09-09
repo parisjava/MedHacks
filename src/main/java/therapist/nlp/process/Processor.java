@@ -15,10 +15,12 @@ import java.sql.SQLException;
 
 public class Processor {
 
+    StanfordCoreNLP pipeline;
     public Processor() {
+	pipeline = new StanfordCoreNLP(Init.pipeline);
     }
 
-    public String process(String text, StanfordCoreNLP pipeline) {
+    public String process(String text) {
 	Annotation document = new Annotation(text);
 	pipeline.annotate(document);
 	int sentiment = 0;
