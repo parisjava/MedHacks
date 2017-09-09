@@ -10,37 +10,15 @@
     </description>
 
     <servlet>
-        <servlet-name>GoogleServlet</servlet-name>
-        <servlet-class>com.fortira.servlet.GoogleServlet</servlet-class>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>therapist.nlp.servlet.TestServlet</servlet-class>
     </servlet>
-
-    <servlet>
-      <servlet-name>AlexaServlet</servlet-name>
-      <servlet-class>com.fortira.servlet.AlexaServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-      <servlet-name>Security</servlet-name>
-      <servlet-class>com.fortira.servlet.SecurityServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-      <servlet-name>GoogleServlet</servlet-name>
-      <url-pattern>/apiai</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-      <servlet-name>AlexaServlet</servlet-name>
-      <url-pattern>/alexa</url-pattern>
-    </servlet-mapping>
 
 
     <servlet-mapping>
-      <servlet-name>Security</servlet-name>
-      <url-pattern>/security</url-pattern>
+      <servlet-name>TestServlet</servlet-name>
+      <url-pattern>/test</url-pattern>
     </servlet-mapping>
 
-    <welcome-file-list>
-      <welcome-file>user.jsp</welcome-file>
-    </welcome-file-list>
+
 </web-app>
