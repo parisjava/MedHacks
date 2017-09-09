@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Therapist</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="styles.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>Therapist</h1>
+					<p>By DVLBS</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">Proceed to talk with your companion</a>
+				</footer>
+			</section>
+
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>This is Therapist</h2>
+				</header>
+				<p>Your new companion, here to help you with any stress or difficulties you may face in life. <br />
+				You talk out your problems, we will help you solve them.</p>
+				<footer>
+				<div class="input-single">
+                    <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6" columns = "30"></textarea>
+                </div>  
+					<button id="start-record-btn" title="Start Recording" onclick = click>Start Recognition</button>
+                	<button id="pause-record-btn" title="Pause Recording" onclick = recognition.onspeechend>Pause Recognition</button>
+                	<button id="save-note-btn" title="Save Note">Save Note</button>   
+               
+                
+                <p>
+                <ul id="notes">
+
+                </ul>
+                </p>
+				</footer>
+			</section>
+			
+			       
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src = "assets/js/speech.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	</body>
+</html>
+
+
+<!-- class="button style2 scrolly
+<img src = "assets/images/microphone.png"/><a href="#first">Act on this message</a>
