@@ -52,6 +52,11 @@
 
 
 	<build>
+	  <resources>
+	    <resource>
+	      <directory>res</directory>
+	    </resource>
+	  </resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
