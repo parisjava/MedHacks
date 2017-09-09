@@ -61,7 +61,7 @@ public class Database implements AutoCloseable {
     }
 
     public String getAlias(String word) {
-	String sqlQuery = "Select alias from alias where word=" + word;
+	String sqlQuery = "Select alias from alias where word=\'" + word + "\'";
 	
 	try (Statement statement = connection.createStatement()) {
 	    ResultSet rs = statement.executeQuery(sqlQuery);
