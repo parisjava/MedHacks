@@ -11,7 +11,7 @@
 
     <servlet>
         <servlet-name>TestServlet</servlet-name>
-        <servlet-class>therapist.nlp.servlet.AlexaPost</servlet-class>
+        <servlet-class>therapist.nlp.servlet.TestServlet</servlet-class>
     </servlet>
 
 
