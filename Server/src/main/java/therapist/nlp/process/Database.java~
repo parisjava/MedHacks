@@ -1,0 +1,37 @@
+public class Database implements Closeable {
+
+    Connection connection = null;
+    
+    public Database(String url, Properties properties) throws SQLException {
+	this.connect(url, properties);
+    }
+
+    public connect(String url, Properties properties) {
+	this.connection = DriverManager.getConnection(url, properties);
+    }
+
+    public String query(String sqlQuery) {
+	try (Statement statement = connection.createStatement()) {
+	    return  getQuestion(statement.executeQuery(sqlQuery));
+	} catch(SQLException e) {
+	    System.out.println(e.getMessage());
+	    queryFallback();
+	}
+    }
+
+    public String fallBack() {
+	try {
+	    return queryFallback()
+	} catch (SQLException e) {
+	    return "Sorry something went wrong";
+	}
+    }
+
+    public String queryFallback() throws SQLException  {
+	String sqlQuery = "Select Question From Generic Order By Random() LIMIT 1";
+	try (Statement statement = connection.createStatement()) {
+	    return getQuestion(statement.executeQuery(sqlQuery));
+	}
+    }
+    
+}

@@ -1,0 +1,4 @@
+url=jdbc:sqlite::resource:test.sqlite
+user=bruh
+password=bruh
+driver=org.sqlite.JDBC
