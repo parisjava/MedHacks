@@ -1,2 +1,0 @@
-annotators=tokenize,ssplit,pos,parse,lemma,ner,sentiment
-ner.model=model.ser.gz
