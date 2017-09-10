@@ -21,6 +21,7 @@ public class Processor {
     }
 
     public String process(String text) {
+	text = text.toLowerCase();
 	Annotation document = new Annotation(text);
 	pipeline.annotate(document);
 	int sentiment = 0;
